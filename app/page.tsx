@@ -192,7 +192,7 @@ export default function Home() {
       </section>
 
       <footer className="bg-[#0F3A3A] border-t border-[#F0E3D0]/10 py-10 text-center text-sm text-[#F0E3D0]/50">
-        © {new Date().getFullYear()} Dra. Thaís Costa · Pediatria · Salvador - BA
+        © 2026 Dra. Thaís Costa · Pediatria · Salvador - BA
       </footer>
     </main>
   );
