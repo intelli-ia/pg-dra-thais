@@ -1,8 +1,5 @@
-// TODO: substituir pelo número real da Melissa (formato internacional, só dígitos)
-export const WHATSAPP_NUMBER = "5571900000000";
-export const WHATSAPP_MESSAGE =
-  "Olá! Gostaria de agendar uma consulta com a Dra. Thaís Costa.";
-export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+export const WHATSAPP_URL =
+  "https://api.whatsapp.com/send?phone=5571981923570&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta";
 
 export const ADDRESS =
   "Condomínio Metropolis Empresarial, Rua Dr. José Peroba, 275, Sala 1210 — STIEP, Salvador - BA, CEP 41770-235";
