@@ -3,28 +3,44 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "Dra. Thaís, você atende por plano de saúde?",
-    a: "Não, meus atendimentos são apenas particulares. Escolhi trabalhar assim porque o modelo dos convênios não me permite dar a atenção e o tempo que o seu filho merece. Mas fique tranquila: eu emito a Nota Fiscal para você solicitar o reembolso pelo seu plano.",
+    q: "A Dra. Thaís Costa atende por plano de saúde?",
+    a: [
+      "Não. Os atendimentos são exclusivamente particulares, permitindo uma consulta com mais tempo para avaliação da criança e esclarecimento das dúvidas da família.",
+      "Após a consulta, é emitida a nota fiscal, que pode ser utilizada para solicitar reembolso ao plano de saúde, conforme as condições do convênio.",
+    ],
   },
   {
-    q: "E como funciona esse reembolso pelo convênio?",
-    a: "É bem simples. Logo após a nossa consulta, a minha equipe te entrega a Nota Fiscal. Você só precisa enviar esse documento pelo aplicativo do seu convênio, e eles depositam uma parte ou o valor total da consulta direto na sua conta bancária.",
+    q: "Qual é o valor da consulta pediátrica?",
+    a: [
+      "O valor da consulta é de R$ 380,00 para pagamento no cartão de crédito ou débito.",
+      "Para pagamentos via Pix, o valor é de R$ 360,00.",
+    ],
   },
   {
-    q: "Qual é o valor da consulta e como posso pagar?",
-    a: "O valor da consulta é R$ 380,00, e você pode pagar no cartão de crédito ou débito. Se preferir fazer no Pix, dou um desconto e o valor fica R$ 360,00.",
+    q: "Quanto tempo dura a consulta?",
+    a: [
+      "A consulta pode durar até 1 hora, permitindo uma avaliação cuidadosa da criança e tempo para conversar sobre as preocupações e dúvidas dos pais.",
+    ],
   },
   {
-    q: "Quanto tempo dura a nossa consulta?",
-    a: "Eu separo até 1 hora para estarmos juntas. Diferente daquelas consultas corridas de 10 minutos, eu faço questão desse tempo para examinar seu filho por inteiro, olhar exames com calma e tirar absolutamente todas as suas dúvidas. A pressa não entra no meu consultório.",
+    q: "A Dra. Thaís atende bebês e recém-nascidos?",
+    a: [
+      "Sim. A Dra. Thaís realiza o acompanhamento pediátrico de recém-nascidos, bebês, crianças e adolescentes, avaliando o crescimento, o desenvolvimento e as necessidades de cada fase.",
+    ],
   },
   {
-    q: "Onde fica o seu consultório? Tem onde estacionar?",
-    a: "Fica no STIEP, no Condomínio Metropolis Empresarial (Rua Dr. José Peroba, 275, Sala 1210). E sim, o prédio tem estacionamento próprio. Você pode vir com tranquilidade, sem se preocupar em procurar vaga na rua com criança pequena no carro.",
+    q: "Onde fica o consultório da Dra. Thaís Costa em Salvador?",
+    a: [
+      "O consultório está localizado no Condomínio Metropolis Empresarial, na Rua Dr. José Peroba, 275, Sala 1210, STIEP, Salvador - BA, CEP 41770-235.",
+      "O prédio conta com estacionamento para maior comodidade das famílias.",
+    ],
   },
   {
-    q: "Como faço para agendar a consulta?",
-    a: "É só clicar em qualquer botão verde aqui da página. Você vai falar direto com a Melissa, que cuida do meu atendimento no WhatsApp. Ela vai te mostrar os dias e horários livres na minha agenda para a gente se encontrar.",
+    q: "Como funciona o agendamento da consulta?",
+    a: [
+      "Para agendar, basta clicar no botão de WhatsApp disponível nesta página.",
+      "Você será atendido pela Melissa, responsável pelos agendamentos, que informará os dias e horários disponíveis.",
+    ],
   },
 ];
 
@@ -46,6 +62,7 @@ export default function FAQ() {
               className="group flex w-full items-center justify-between gap-3 py-5 text-left"
             >
               <span className="font-serif text-lg font-medium leading-snug text-[#F0E3D0] transition-colors duration-200 group-hover:text-[#E3AFB0] md:text-xl">
+                
                 {f.q}
               </span>
               <span
@@ -74,7 +91,11 @@ export default function FAQ() {
               }`}
             >
               <div className="overflow-hidden">
-                <p className="pb-5 text-sm leading-relaxed text-[#F0E3D0]/60 md:text-base">{f.a}</p>
+                <div className="space-y-3 pb-5 text-sm leading-relaxed text-[#F0E3D0]/60 md:text-base">
+                  {f.a.map((p) => (
+                    <p key={p}>{p}</p>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

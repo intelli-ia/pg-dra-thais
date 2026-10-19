@@ -1,40 +1,21 @@
-// TODO: substituir pelos depoimentos reais das mães
+// Avaliações originais do Google (texto mantido sem edições)
 const testimonials = [
   {
-    name: "Mãe de paciente",
-    role: "Mãe",
+    name: "Maisa Quele",
+    role: "Avaliação no Google",
     quote:
-      "Nunca tive uma consulta tão tranquila. A Dra. Thaís ouviu cada uma das minhas dúvidas, sem pressa nenhuma, e saí do consultório sabendo exatamente o que fazer.",
+      "Estava em busca de uma pediatra que me ouvisse, que tivesse atenção as minhas preocupações como mãe , e com Dra Thais encontrei esse olhar atento ... Depois de 7 anos em busca de uma pediatra atenciosa , responsável e humana , encontrei ❤️🙏🏽",
   },
   {
-    name: "Mãe de paciente",
-    role: "Mãe",
-    quote:
-      "Meu filho dormia muito mal e eu já estava exausta. Com as orientações dela, nossas noites mudaram. Ela olha a criança por inteiro, e a família junto.",
+    name: "Leandro Bolivar",
+    role: "Avaliação no Google",
+    quote: "Atendimento excelente. Enfim, uma pediatra que realmente dá atenção e examina o paciente com cuidado.",
   },
   {
-    name: "Mãe de paciente",
-    role: "Mãe",
+    name: "Miriam Felicio",
+    role: "Avaliação no Google",
     quote:
-      "Sem sala de espera cheia, no horário marcado e com uma atenção que eu não encontrava em lugar nenhum. Me senti acolhida desde o primeiro minuto.",
-  },
-  {
-    name: "Mãe de paciente",
-    role: "Mãe",
-    quote:
-      "A introdução alimentar era meu maior medo. Ela montou um plano que cabia na nossa rotina e respondeu todas as mensagens com muito carinho.",
-  },
-  {
-    name: "Mãe de paciente",
-    role: "Mãe",
-    quote:
-      "Profissional excelente! Examina com calma, explica tudo e deixa a criança à vontade. Não troco por nada.",
-  },
-  {
-    name: "Mãe de paciente",
-    role: "Mãe",
-    quote:
-      "Ambiente tranquilo, acolhedor e sem aquela correria de consultório cheio. Vale cada minuto da consulta.",
+      "Gostei muito da médica, muito atenciosa, conversa bastante, tira todas as duvidas, dá muitas dicas e avalia toda a criança. Eu fui para a primeira consulta de RN e eu amei porque pude tirar todas as minhas dúvidas e preocupações que toda mamãe tem, o que a gente quer e ficar tranquila e dra Thaís ajudou. Recomendo!",
   },
 ];
 
@@ -52,7 +33,7 @@ function Stars() {
 
 function Card({ t }: { t: (typeof testimonials)[number] }) {
   return (
-    <div className="mx-2 flex h-72 w-72 shrink-0 flex-col rounded-3xl border border-[#174B4B]/10 bg-white p-5 shadow-[0_20px_40px_-30px_rgba(23,75,75,0.4)] sm:mx-3 sm:h-80 sm:w-80 sm:p-7">
+    <div className="mx-2 flex h-[22rem] w-72 shrink-0 flex-col rounded-3xl border border-[#174B4B]/10 bg-white p-5 shadow-[0_20px_40px_-30px_rgba(23,75,75,0.4)] sm:mx-3 sm:h-[23rem] sm:w-80 sm:p-7">
       <Stars />
       <blockquote className="flex-1 overflow-hidden text-sm leading-relaxed text-[#174B4B]/70">
         &ldquo;{t.quote}&rdquo;
@@ -70,12 +51,14 @@ function Card({ t }: { t: (typeof testimonials)[number] }) {
   );
 }
 
+// Poucos depoimentos: repete a lista para o loop (-50%) cobrir telas largas
 function Row({ reverse = false }: { reverse?: boolean }) {
-  const list = reverse ? [...testimonials].reverse() : testimonials;
+  const base = reverse ? [...testimonials].reverse() : testimonials;
+  const half = [...base, ...base, ...base];
   return (
     <div className="marquee-row relative flex overflow-hidden">
       <div className={`marquee-track flex ${reverse ? "marquee-reverse" : ""}`}>
-        {[...list, ...list].map((t, i) => (
+        {[...half, ...half].map((t, i) => (
           <Card key={i} t={t} />
         ))}
       </div>

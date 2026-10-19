@@ -11,9 +11,19 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Dra. Thaís Costa | Pediatra em Salvador",
+  title: "Pediatra em Salvador | Dra. Thaís Costa",
   description:
-    "Pediatra com +12 anos de experiência em Salvador. Consultas de até 1 hora, atendimento particular, sem sala de espera lotada.",
+    "Procurando uma pediatra em Salvador? Conheça a Dra. Thaís Costa. Acompanhamento de bebês, crianças e adolescentes. Atendimento particular no STIEP.",
+  metadataBase: new URL("https://drathaiscosta.com.br"),
+  alternates: { canonical: "/" },
+  keywords: [
+    "pediatra em Salvador",
+    "consulta pediátrica em Salvador",
+    "pediatra para bebês",
+    "pediatra infantil",
+    "acompanhamento pediátrico",
+    "médico que cuida de crianças",
+  ],
 };
 
 const GTM_ID = "GTM-P2C8W5HL";
