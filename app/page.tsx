@@ -46,7 +46,7 @@ export default function Home() {
         <div className="pointer-events-none absolute -bottom-52 -left-32 h-[520px] w-[520px] rounded-full bg-[#2a7070]/40 blur-3xl" />
         <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-6 pb-32 pt-16 md:grid-cols-12 md:gap-8 md:py-24">
           <div className="order-2 md:order-1 md:col-span-7">
-            <h1 className="font-serif type-hero font-medium">
+            <h1 className="font-serif type-section font-medium">
               Pediatra em Salvador para cuidar da saúde e do desenvolvimento do seu filho.
             </h1>
             <div className="my-6 h-px w-24 bg-[#BD7475]" />
@@ -65,7 +65,7 @@ export default function Home() {
             </ul>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <CTAButton />
-              <CTAButton variant="outline" label="Saiba mais" href="#sobre" external={false} />
+              <CTAButton variant="outline" label="Saiba mais" href="#depoimentos" external={false} />
             </div>
           </div>
 
@@ -91,10 +91,10 @@ export default function Home() {
       {/* DOBRA 02 — DEPOIMENTOS */}
       <section id="depoimentos" className="overflow-hidden bg-[#E8D6BA] pb-40 pt-20 md:pb-44 md:pt-28">
         <Reveal className="mb-10 px-6 text-center md:mb-20">
-          <h2 className="mx-auto max-w-3xl font-serif type-section text-[#174B4B]">
+          <h2 className="mx-auto max-w-5xl font-serif type-section text-[#174B4B]">
             O que as famílias dizem sobre o atendimento da Dra. Thaís Costa
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-[#3d5a5a]">
+          <p className="mx-auto mt-4 max-w-xl leading-relaxed text-[#3d5a5a]">
             Conheça a experiência de pais e mães que confiaram o cuidado de seus filhos à Dra. Thaís Costa.
           </p>
         </Reveal>
@@ -168,17 +168,24 @@ export default function Home() {
               Um atendimento pediátrico pensado para avaliar seu filho com cuidado, ouvir suas preocupações e orientar sua família com clareza.
             </p>
           </Reveal>
-          <div className="grid gap-6 md:grid-cols-2">
+          <ol className="relative max-w-3xl">
             {steps.map(([t, d], i) => (
-              <Reveal key={t} delay={(i % 2) * 100}>
-                <article className="h-full rounded-3xl border border-[#F0E3D0]/15 bg-[#F0E3D0]/5 p-9">
-                  <span className="font-serif text-5xl italic text-[#E3AFB0]">0{i + 1}</span>
-                  <h3 className="mt-3 font-serif type-card">{t}</h3>
-                  <p className="mt-2 leading-relaxed text-[#F0E3D0]/75">{d}</p>
-                </article>
+              <Reveal key={t} delay={i * 80}>
+                <li className="relative flex gap-5 pb-10 last:pb-0 md:gap-8">
+                  {i < steps.length - 1 && (
+                    <span className="absolute left-[19px] top-10 h-[calc(100%-2.5rem)] w-px bg-[#E3AFB0]/40" aria-hidden />
+                  )}
+                  <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#E3AFB0] bg-[#174B4B] text-sm font-semibold text-[#E3AFB0]">
+                    {i + 1}
+                  </span>
+                  <div className="pt-1">
+                    <h3 className="font-serif type-card">{t}</h3>
+                    <p className="mt-2 leading-relaxed text-[#F0E3D0]/75">{d}</p>
+                  </div>
+                </li>
               </Reveal>
             ))}
-          </div>
+          </ol>
 
           <div className="mt-14 grid gap-10 md:grid-cols-2">
             <Reveal>
@@ -196,16 +203,9 @@ export default function Home() {
                 ))}
               </ul>
               <p className="mt-4 leading-relaxed text-[#D8E2DC]">{ADDRESS}</p>
-              <a
-                href={MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-block border-b border-[#BD7475] pb-1 text-sm uppercase tracking-[0.2em] text-[#E3AFB0] transition hover:text-white"
-              >
-                Abrir no mapa →
-              </a>
-              <div className="mt-8">
+              <div className="mt-8 flex w-full flex-col gap-4">
                 <CTAButton />
+                <CTAButton variant="outline" label="Abrir no mapa" href={MAPS_URL} />
               </div>
             </Reveal>
             <Reveal delay={150}>
@@ -280,7 +280,7 @@ export default function Home() {
                 Dúvidas frequentes sobre a consulta pediátrica em Salvador
               </h2>
               <div>
-                <CTAButton label="Agende sua consulta com a Dra. Thaís Costa" />
+                <CTAButton label="Tenho mais dúvidas" icon="whatsapp" variant="green" />
               </div>
             </div>
           </Reveal>

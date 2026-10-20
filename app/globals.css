@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-manrope);
-  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-poppins);
+  --font-serif: var(--font-poppins);
 }
 
 html {
@@ -12,7 +12,7 @@ html {
 body {
   background: #F0E3D0;
   color: #3d5a5a;
-  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-family: var(--font-poppins), system-ui, sans-serif;
 }
 
 .no-scrollbar {
