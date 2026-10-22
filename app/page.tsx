@@ -56,7 +56,7 @@ export default function Home() {
         <Star className="pointer-events-none absolute left-[46%] top-24 w-6 text-[#F6DDA0] twinkle" />
         <Star className="pointer-events-none absolute bottom-20 left-[42%] w-5 text-[#E3AFB0] twinkle [animation-delay:-1s]" />
         <Star className="pointer-events-none absolute right-[5%] top-1/3 w-4 text-[#F6DDA0]/80 twinkle [animation-delay:-2s]" />
-        <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-6 pb-32 pt-16 md:grid-cols-12 md:gap-8 md:py-24">
+        <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-6 pb-32 pt-8 md:grid-cols-12 md:gap-8 md:py-24">
           <div className="order-2 md:order-1 md:col-span-7">
             <h1 className="font-serif type-section font-medium">
               Pediatra em Salvador para cuidar da saúde e do desenvolvimento do seu filho.
@@ -82,19 +82,19 @@ export default function Home() {
           </div>
 
           <div className="order-1 md:order-2 md:col-span-5">
-            <div className="relative mx-auto w-[72%] max-w-sm md:w-full md:max-w-md">
+            <div className="relative mx-auto w-[90%] max-w-sm md:w-full md:max-w-md">
               <div className="absolute -bottom-4 -right-4 left-4 top-4 rounded-t-[999px] rounded-b-[2rem] border border-[#E3AFB0]/60" />
               <Balloon className="absolute -left-6 top-10 z-10 w-10 text-[#E3AFB0] float-slow md:-left-10 md:w-14" />
               <Balloon className="absolute -right-3 top-2 z-10 w-8 text-[#F6DDA0] float-slow [animation-delay:-2s] md:-right-8 md:w-11" />
               <Heart className="absolute -bottom-3 -left-3 z-10 w-9 text-[#BD7475] md:w-12" />
               <Star className="absolute -right-4 bottom-16 z-10 w-8 text-[#F6DDA0] twinkle" />
-              <div className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-[2rem] bg-[#E8D6BA] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)]">
+              <div className="relative aspect-square overflow-hidden rounded-t-[999px] rounded-b-[2rem] bg-[#E8D6BA] md:aspect-[4/5] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)]">
                 <Image
-                  src="/dra-thais.webp"
+                  src="/hero.webp"
                   alt="Dra. Thaís Costa, pediatra em Salvador"
                   fill
                   priority
-                  sizes="(min-width: 768px) 40vw, 72vw"
+                  sizes="(min-width: 768px) 40vw, 90vw"
                   className="object-cover object-[50%_20%]"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#174B4B]/30 via-transparent to-transparent" />
