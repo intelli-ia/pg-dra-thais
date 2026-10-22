@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import CTAButton from "./CTAButton";
 
-// Pílula flutuante que aparece depois da hero
+// Pílula flutuante que aparece depois da hero (embaixo no mobile, no topo no desktop)
 export default function Header() {
   const [visible, setVisible] = useState(false);
 
@@ -18,8 +18,10 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed left-0 right-0 top-5 z-50 flex justify-center px-4 transition-[opacity,transform] duration-500 ease-out ${
-        visible ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-4 opacity-0"
+      className={`fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] left-0 right-0 z-50 flex justify-center px-4 transition-[opacity,transform] duration-500 ease-out md:bottom-auto md:top-5 ${
+        visible
+          ? "pointer-events-auto translate-y-0 opacity-100"
+          : "pointer-events-none translate-y-4 opacity-0 md:-translate-y-4"
       }`}
     >
       <div

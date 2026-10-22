@@ -111,8 +111,14 @@ section[id] {
   0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
   50% { opacity: 0.55; transform: scale(0.8) rotate(12deg); }
 }
+@keyframes cta-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+.cta-pulse { animation: cta-pulse 2s ease-in-out infinite; }
+.cta-pulse:hover { animation-play-state: paused; }
 .float-slow { animation: float-slow 7s ease-in-out infinite; }
 .twinkle { animation: twinkle 3.5s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {
-  .float-slow, .twinkle { animation: none; }
+  .float-slow, .twinkle, .cta-pulse { animation: none; }
 }

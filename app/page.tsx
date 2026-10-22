@@ -75,9 +75,9 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-4 md:justify-start">
               <CTAButton />
-              <CTAButton variant="outline" label="Saiba mais" href="#depoimentos" external={false} />
+              <CTAButton variant="outline" label="Saiba mais" href="#depoimentos" external={false} pulse={false} />
             </div>
           </div>
 
@@ -90,12 +90,12 @@ export default function Home() {
               <Star className="absolute -right-4 bottom-16 z-10 w-8 text-[#F6DDA0] twinkle" />
               <div className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-[2rem] bg-[#E8D6BA] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)]">
                 <Image
-                  src="/hero-dra-thais.webp"
-                  alt="Dra. Thaís Costa, pediatra em Salvador, lendo um livro sobre alimentação infantil"
+                  src="/dra-thais.webp"
+                  alt="Dra. Thaís Costa, pediatra em Salvador"
                   fill
                   priority
                   sizes="(min-width: 768px) 40vw, 72vw"
-                  className="object-cover object-[60%_30%]"
+                  className="object-cover object-[50%_20%]"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#174B4B]/30 via-transparent to-transparent" />
               </div>
@@ -151,11 +151,14 @@ export default function Home() {
             <div className="mx-auto my-7 h-px w-24 bg-[#BD7475]" />
           </Reveal>
           <Reveal delay={120} className="space-y-4 text-base leading-[1.7] md:text-lg text-[#F0E3D0]/85">
-            <p>
+            <p className="md:hidden">
+              É natural ter dúvidas e preocupações em cada fase da infância. Na consulta com a Dra. Thaís Costa, seu filho é avaliado com cuidado e você recebe orientações claras para entender melhor a saúde e o desenvolvimento dele.
+            </p>
+            <p className="hidden md:block">
               Desde as primeiras dúvidas sobre o recém-nascido até os desafios de cada fase da infância, é natural ter perguntas, inseguranças e preocupações.
             </p>
-            <p>E você precisa de uma pediatra que tenha tempo para ouvir, avaliar e explicar.</p>
-            <p>
+            <p className="hidden md:block">E você precisa de uma pediatra que tenha tempo para ouvir, avaliar e explicar.</p>
+            <p className="hidden md:block">
               Na consulta com a Dra. Thaís Costa, cada criança é acompanhada de forma individualizada, com uma avaliação cuidadosa e orientações que ajudam os pais a compreender melhor a saúde e o desenvolvimento dos filhos.
             </p>
             <p className="mt-8 border-t border-[#F0E3D0]/15 pt-8 font-serif text-xl italic leading-snug text-[#E3AFB0] md:text-2xl">
@@ -184,9 +187,9 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-2">
             {followUp.map(([t, d, icon, tint], i) => (
               <Reveal key={t} delay={(i % 3) * 80}>
-                <article className="group h-full rounded-3xl border border-[#D3BF9F] bg-[#F0E3D0] p-9 transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_-28px_rgba(23,75,75,0.45)]">
+                <article className="group h-full rounded-3xl border border-[#D3BF9F] bg-[#F0E3D0] p-9 text-center md:text-left transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_-28px_rgba(23,75,75,0.45)]">
                   <span
-                    className="flex h-16 w-16 items-center justify-center rounded-2xl text-[#174B4B] transition duration-500 group-hover:rotate-6 group-hover:scale-110"
+                    className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl md:mx-0 text-[#174B4B] transition duration-500 group-hover:rotate-6 group-hover:scale-110"
                     style={{ backgroundColor: tint }}
                   >
                     <CuteIcon name={icon} className="h-10 w-10" />
@@ -223,9 +226,9 @@ export default function Home() {
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {privateBenefits.map(([t, d, icon, tint], i) => (
               <Reveal key={t} delay={i * 80}>
-                <article className="group h-full rounded-3xl border border-[#2a7070] bg-[#1d5a5a] p-8 transition duration-500 hover:-translate-y-1">
+                <article className="group h-full rounded-3xl border border-[#2a7070] bg-[#1d5a5a] p-8 text-center md:text-left transition duration-500 hover:-translate-y-1">
                   <span
-                    className="flex h-16 w-16 items-center justify-center rounded-2xl text-[#174B4B] transition duration-500 group-hover:rotate-6 group-hover:scale-110"
+                    className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl md:mx-0 text-[#174B4B] transition duration-500 group-hover:rotate-6 group-hover:scale-110"
                     style={{ backgroundColor: tint }}
                   >
                     <CuteIcon name={icon} className="h-10 w-10" />
@@ -255,8 +258,8 @@ export default function Home() {
             </p>
           </Reveal>
         </div>
-        <div className="mx-auto grid max-w-6xl items-start gap-14 px-6 md:grid-cols-[1.2fr_1fr] md:gap-12">
-          <div>
+        <div className="mx-auto grid max-w-6xl items-start gap-14 px-6 md:grid-cols-[1.2fr_1fr] md:grid-rows-[auto_1fr] md:gap-x-12 md:gap-y-0">
+          <div className="md:col-start-1 md:row-start-1">
             <ol className="relative max-w-3xl">
               {steps.map(([t, d], i) => (
                 <Reveal key={t} delay={i * 80}>
@@ -275,12 +278,9 @@ export default function Home() {
                 </Reveal>
               ))}
             </ol>
-            <Reveal className="mt-12">
-              <CTAButton />
-            </Reveal>
           </div>
 
-          <Reveal delay={150}>
+          <Reveal delay={150} className="md:col-start-2 md:row-span-2 md:row-start-1">
             <div className="relative mx-auto max-w-sm md:max-w-none">
               <div className="absolute -bottom-4 -right-4 left-4 top-4 rounded-3xl border border-[#BD7475]/60" />
               <div className="relative aspect-[3/4] overflow-hidden rounded-3xl bg-[#174B4B] shadow-[0_40px_80px_-30px_rgba(23,75,75,0.6)]">
@@ -296,13 +296,17 @@ export default function Home() {
             </div>
             <p className="mt-6 text-center text-xs leading-snug text-[#3d5a5a]">{ADDRESS}</p>
           </Reveal>
+
+          <Reveal className="text-center md:col-start-1 md:row-start-2 md:mt-12 md:text-left">
+            <CTAButton />
+          </Reveal>
         </div>
       </section>
 
       {/* DOBRA 06 — SOBRE A MÉDICA */}
       <section id="sobre" className="relative -mt-16 overflow-hidden bg-[#E8D6BA] pb-40 pt-20 md:pb-44 md:pt-28">
         <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 md:grid-cols-12 md:gap-14">
-          <Reveal className="md:col-span-5">
+          <Reveal className="order-2 md:order-none md:col-span-5">
             <div className="relative mx-auto max-w-sm md:max-w-none">
               <div className="absolute -bottom-4 -right-4 left-4 top-4 rounded-t-[999px] rounded-b-[2rem] border border-[#BD7475]/60" />
               <div className="absolute -left-6 -top-6 h-24 w-24 rounded-full bg-[#BD7475]/25 blur-2xl" />
@@ -324,32 +328,42 @@ export default function Home() {
               </div>
             </div>
           </Reveal>
-          <Reveal delay={150} className="md:col-span-7">
-            <h2 className="font-serif type-section text-[#174B4B]">
-              Conheça a Dra. Thaís Costa, <span className="italic">pediatra em Salvador</span>
-            </h2>
-            <div className="my-6 h-px w-16 bg-[#BD7475]" />
-            <div className="space-y-4 text-base leading-[1.7] md:text-lg text-[#3d5a5a]">
-              <p>
-                Sou médica formada pela Universidade Federal da Bahia (UFBA), com residência em Pediatria pelo Hospital Santo Antônio, das Obras Sociais Irmã Dulce.
-              </p>
-              <p>Há mais de 12 anos, dedico minha trajetória profissional ao cuidado da saúde de crianças e adolescentes.</p>
-              <p>
-                Ao longo dessa experiência, compreendi que uma boa consulta pediátrica vai além do exame físico. É preciso ouvir as preocupações dos pais, compreender a rotina da criança e explicar cada orientação com clareza.
-              </p>
-              <p>
-                Por isso, escolhi oferecer um atendimento particular, com tempo para conhecer cada família e realizar avaliações cuidadosas, sem deixar que a pressa comprometa a atenção que cada criança merece.
-              </p>
-              <p>
-                Meu objetivo é que você saia da consulta compreendendo melhor a saúde do seu filho e sabendo quais cuidados seguir.
-              </p>
-            </div>
-            <p className="mt-6 font-serif text-2xl text-[#174B4B]">Dra. Thaís Costa</p>
-            <p className="text-sm tracking-wide text-[#3d5a5a]">CRM-BA 23340 | RQE 19602</p>
-            <div className="mt-8">
-              <CTAButton />
-            </div>
-          </Reveal>
+          <div className="contents md:col-span-7 md:block">
+            <Reveal delay={150} className="order-1 -mb-6 md:order-none md:mb-0">
+              <h2 className="font-serif type-section text-[#174B4B]">
+                Conheça a Dra. Thaís Costa, <span className="italic">pediatra em Salvador</span>
+              </h2>
+              <div className="my-6 h-px w-16 bg-[#BD7475]" />
+            </Reveal>
+            <Reveal delay={150} className="order-3 md:order-none">
+              <div className="space-y-4 text-base leading-[1.7] md:text-lg text-[#3d5a5a]">
+                <p className="md:hidden">
+                  Sou médica formada pela UFBA, com residência em Pediatria pelo Hospital Santo Antônio, das Obras Sociais Irmã Dulce. Há mais de 12 anos, dedico minha trajetória ao cuidado da saúde de crianças e adolescentes.
+                </p>
+                <p className="md:hidden">
+                  Para mim, uma boa consulta vai além do exame físico: por isso ofereço um atendimento particular, com tempo para ouvir cada família e explicar cada orientação com clareza, para que você saia sabendo quais cuidados seguir.
+                </p>
+                <p className="hidden md:block">
+                  Sou médica formada pela Universidade Federal da Bahia (UFBA), com residência em Pediatria pelo Hospital Santo Antônio, das Obras Sociais Irmã Dulce.
+                </p>
+                <p className="hidden md:block">Há mais de 12 anos, dedico minha trajetória profissional ao cuidado da saúde de crianças e adolescentes.</p>
+                <p className="hidden md:block">
+                  Ao longo dessa experiência, compreendi que uma boa consulta pediátrica vai além do exame físico. É preciso ouvir as preocupações dos pais, compreender a rotina da criança e explicar cada orientação com clareza.
+                </p>
+                <p className="hidden md:block">
+                  Por isso, escolhi oferecer um atendimento particular, com tempo para conhecer cada família e realizar avaliações cuidadosas, sem deixar que a pressa comprometa a atenção que cada criança merece.
+                </p>
+                <p className="hidden md:block">
+                  Meu objetivo é que você saia da consulta compreendendo melhor a saúde do seu filho e sabendo quais cuidados seguir.
+                </p>
+              </div>
+              <p className="mt-6 text-center font-serif md:text-left text-2xl text-[#174B4B]">Dra. Thaís Costa</p>
+              <p className="text-center text-sm tracking-wide text-[#3d5a5a] md:text-left">CRM-BA 23340 | RQE 19602</p>
+              <div className="mt-8 text-center md:text-left">
+                <CTAButton />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -358,10 +372,10 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl flex-col gap-16 px-6 md:flex-row md:gap-20">
           <Reveal className="shrink-0 md:w-1/3">
             <div className="flex flex-col gap-6 md:sticky md:top-28">
-              <h2 className="font-serif type-sub font-medium text-[#E3AFB0]">
+              <h2 className="text-center font-serif type-sub font-medium text-[#E3AFB0] md:text-left">
                 Dúvidas frequentes sobre a consulta pediátrica em Salvador
               </h2>
-              <div>
+              <div className="text-center md:text-left">
                 <CTAButton label="Tenho mais dúvidas" icon="whatsapp" variant="green" />
               </div>
             </div>
@@ -395,7 +409,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-[#0F3A3A] pb-10 pt-4 text-center text-sm text-[#F0E3D0]/50">
+      <footer className="bg-[#0F3A3A] pb-28 pt-8 md:py-10 text-center text-sm text-[#F0E3D0]/50">
         © 2026 Dra. Thaís Costa · CRM-BA 23340 | RQE 19602 · Pediatria · Salvador - BA
       </footer>
     </main>

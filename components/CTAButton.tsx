@@ -8,6 +8,7 @@ type Props = {
   size?: "sm" | "default";
   external?: boolean;
   icon?: "arrow" | "whatsapp";
+  pulse?: boolean;
 };
 
 const base =
@@ -34,12 +35,13 @@ export default function CTAButton({
   size = "default",
   external = true,
   icon = "arrow",
+  pulse = true,
 }: Props) {
   return (
     <a
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={`${base} ${variants[variant]} ${sizes[size]}`}
+      className={`${base} ${variants[variant]} ${sizes[size]}${size !== "sm" && pulse ? " cta-pulse" : ""}`}
     >
       {label}
       {icon === "whatsapp" ? (
