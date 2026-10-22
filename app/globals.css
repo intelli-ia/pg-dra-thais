@@ -37,14 +37,25 @@ details[open] > p {
 }
 
 .marquee-track {
-  animation: marquee 40s linear infinite;
+  animation: marquee 100s linear infinite;
   will-change: transform;
 }
 .marquee-reverse {
   animation-direction: reverse;
 }
-.marquee-row:hover .marquee-track {
-  animation-play-state: paused;
+/* Pausa no hover apenas com mouse; no toque o hover "gruda" e interromperia o loop */
+@media (hover: hover) and (pointer: fine) {
+  .marquee-row:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+/* No toque, o carrossel não captura gestos: o scroll da página segue livre e o loop nunca para */
+@media (pointer: coarse) {
+  .marquee-row {
+    pointer-events: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
 }
 @keyframes marquee {
   from {

@@ -2,6 +2,7 @@ import Image from "next/image";
 import CTAButton from "@/components/CTAButton";
 import Header from "@/components/Header";
 import FAQ from "@/components/FAQ";
+import GoogleRating from "@/components/GoogleRating";
 import { Balloon, Cloud, Teddy, CuteIcon, Heart, Squiggle, Star, type IconName } from "@/components/Decor";
 import Reveal from "@/components/Reveal";
 import Testimonials from "@/components/Testimonials";
@@ -62,6 +63,7 @@ export default function Home() {
           aria-hidden
           width={1024}
           height={1536}
+          sizes="(min-width: 768px) 360px, 220px"
           className="pointer-events-none absolute -left-20 bottom-0 h-auto w-[220px] select-none opacity-[0.12] mix-blend-screen invert md:-left-24 md:w-[360px] md:opacity-[0.16]"
         />
         <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-6 pb-32 pt-8 md:grid-cols-12 md:gap-8 md:py-24">
@@ -101,7 +103,8 @@ export default function Home() {
                   src="/hero.webp"
                   alt="Dra. Thaís Costa, pediatra em Salvador"
                   fill
-                  priority
+                  preload
+                  fetchPriority="high"
                   sizes="(min-width: 768px) 40vw, 90vw"
                   className="object-cover object-[50%_20%]"
                 />
@@ -129,7 +132,7 @@ export default function Home() {
             </span>
           ))}
         </Reveal>
-        <Reveal className="mb-10 px-6 text-center md:mb-20">
+        <Reveal className="mb-8 px-6 text-center md:mb-10">
           <h2 className="mx-auto max-w-5xl font-serif type-section text-[#174B4B]">
             O que as famílias dizem sobre o atendimento da Dra. Thaís Costa
           </h2>
@@ -137,6 +140,9 @@ export default function Home() {
           <p className="mx-auto mt-4 max-w-xl leading-relaxed text-[#3d5a5a]">
             Conheça a experiência de pais e mães que confiaram o cuidado de seus filhos à Dra. Thaís Costa.
           </p>
+        </Reveal>
+        <Reveal className="mb-8 px-6 md:mb-10">
+          <GoogleRating />
         </Reveal>
         <Testimonials />
       </section>
@@ -270,8 +276,8 @@ export default function Home() {
           <div className="md:col-start-1 md:row-start-1">
             <ol className="relative max-w-3xl">
               {steps.map(([t, d], i) => (
-                <Reveal key={t} delay={i * 80}>
-                  <li className={`relative flex gap-5 md:gap-8 ${i < steps.length - 1 ? "pb-10" : ""}`}>
+                <li key={t}>
+                  <Reveal delay={i * 80} className={`relative flex gap-5 md:gap-8 ${i < steps.length - 1 ? "pb-10" : ""}`}>
                     {i < steps.length - 1 && (
                       <span className="absolute left-[19px] top-10 h-[calc(100%-2.5rem)] w-px bg-[#BD7475]/40" aria-hidden />
                     )}
@@ -282,8 +288,8 @@ export default function Home() {
                       <h3 className="font-serif type-card text-[#174B4B]">{t}</h3>
                       <p className="mt-2 leading-relaxed text-[#3d5a5a]">{d}</p>
                     </div>
-                  </li>
-                </Reveal>
+                  </Reveal>
+                </li>
               ))}
             </ol>
           </div>
@@ -417,7 +423,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-[#0F3A3A] pb-28 pt-8 md:py-10 text-center text-sm text-[#F0E3D0]/50">
+      <footer className="bg-[#0F3A3A] pb-28 pt-8 md:py-10 text-center text-sm text-[#F0E3D0]/70">
         © 2026 Dra. Thaís Costa · CRM-BA 23340 | RQE 19602 · Pediatria · Salvador - BA
       </footer>
     </main>

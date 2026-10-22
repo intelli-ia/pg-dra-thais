@@ -1,76 +1,92 @@
+type Variant = "light" | "dark" | "sand";
+type Testimonial = { name: string; quote: string; variant: Variant };
+
 // Avaliações originais do Google (texto mantido sem edições)
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
     name: "Maisa Quele",
-    role: "Avaliação no Google",
     quote:
       "Estava em busca de uma pediatra que me ouvisse, que tivesse atenção as minhas preocupações como mãe , e com Dra Thais encontrei esse olhar atento ... Depois de 7 anos em busca de uma pediatra atenciosa , responsável e humana , encontrei ❤️🙏🏽",
+    variant: "light",
   },
   {
     name: "Leandro Bolivar",
-    role: "Avaliação no Google",
     quote: "Atendimento excelente. Enfim, uma pediatra que realmente dá atenção e examina o paciente com cuidado.",
+    variant: "dark",
   },
   {
     name: "Miriam Felicio",
-    role: "Avaliação no Google",
     quote:
       "Gostei muito da médica, muito atenciosa, conversa bastante, tira todas as duvidas, dá muitas dicas e avalia toda a criança. Eu fui para a primeira consulta de RN e eu amei porque pude tirar todas as minhas dúvidas e preocupações que toda mamãe tem, o que a gente quer e ficar tranquila e dra Thaís ajudou. Recomendo!",
+    variant: "sand",
+  },
+  {
+    name: "Emanuela Dorea Carvalho",
+    quote:
+      "Dra Thais é muito atenciosa e acolhedora, um suporte essencial nos momentos de cuidado com o meu filho. Obrigada, Dra! Deus lhe abençoe!",
+    variant: "light",
+  },
+  {
+    name: "Gleisiane Silva",
+    quote:
+      "A dra é maravilhosa! Super atenciosa e tem muito conhecimento. Minha filha ficou bastante confortável durante a consulta. Adoramos!",
+    variant: "sand",
+  },
+  {
+    name: "Dani Silva",
+    quote:
+      "Dra Thaís Costa é uma médica maravilhosa e muito atenciosa. Impressiona pela precisão, sensibilidade e pelo cuidado genuíno com a criança. Profissional que transmite segurança e confiança. Deus te abençoe, Dra. Gratidão 🙏🏼",
+    variant: "light",
+  },
+  {
+    name: "Marcia Duarte",
+    quote: "Excelente atendimento da Dra. Thais Costa. Atendimento humano, escuta ativa, tratamento extremamente cuidadoso.",
+    variant: "dark",
+  },
+  {
+    name: "Natiele Mendes",
+    quote: "Dr Thais é maravilhosa, muito atenciosa, bem precisa. Uma profissional excelente 👏👏.",
+    variant: "sand",
   },
 ];
 
-function Stars() {
-  return (
-    <div className="mb-4 flex gap-1">
-      {[...Array(5)].map((_, i) => (
-        <svg key={i} className="h-4 w-4 text-[#BD7475]" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ))}
-    </div>
-  );
-}
+// Estilos por variante (paleta do projeto)
+const tones = {
+  light: { box: "bg-white", text: "text-[#174B4B]/90", name: "text-[#174B4B]" },
+  dark: { box: "bg-[#174B4B]", text: "text-[#F0E3D0]", name: "text-[#E3AFB0]" },
+  sand: { box: "bg-[#F0E3D0]", text: "text-[#174B4B]", name: "text-[#9A5254]" },
+} as const;
 
-function Card({ t }: { t: (typeof testimonials)[number] }) {
+function Card({ t }: { t: Testimonial }) {
+  const tone = tones[t.variant];
+  // Depoimentos longos usam fonte menor para caber na altura fixa do card
+  const size = t.quote.length > 200 ? "text-base sm:text-lg" : "text-xl sm:text-2xl";
   return (
-    <div className="mx-2 flex h-[22rem] w-72 shrink-0 flex-col rounded-3xl border border-[#174B4B]/10 bg-white p-5 shadow-[0_20px_40px_-30px_rgba(23,75,75,0.4)] sm:mx-3 sm:h-[23rem] sm:w-80 sm:p-7">
-      <Stars />
-      <blockquote className="flex-1 overflow-hidden text-sm leading-relaxed text-[#174B4B]/70">
+    <div
+      className={`relative mx-1 flex h-[28rem] w-72 shrink-0 flex-col justify-between overflow-hidden rounded-3xl border border-[#174B4B]/10 p-6 shadow-[0_20px_40px_-30px_rgba(23,75,75,0.4)] sm:mx-2 sm:h-[30rem] sm:w-[23rem] sm:p-10 ${tone.box}`}
+    >
+      <blockquote className={`relative overflow-hidden leading-relaxed ${tone.text} ${size}`}>
         &ldquo;{t.quote}&rdquo;
       </blockquote>
-      <div className="mt-4 flex items-center gap-3 border-t border-[#174B4B]/10 pt-4">
-        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#BD7475]/20">
-          <span className="text-xs font-bold text-[#BD7475]">{t.name.charAt(0)}</span>
-        </div>
-        <div>
-          <p className="text-sm font-semibold text-[#174B4B]">{t.name}</p>
-          <p className="text-xs text-[#BD7475]">{t.role}</p>
-        </div>
-      </div>
+      <p className={`relative mt-4 text-base font-semibold ${tone.name}`}>{t.name}</p>
     </div>
   );
 }
 
-// Poucos depoimentos: repete a lista para o loop (-50%) cobrir telas largas
-function Row({ reverse = false }: { reverse?: boolean }) {
-  const base = reverse ? [...testimonials].reverse() : testimonials;
-  const half = [...base, ...base, ...base];
-  return (
-    <div className="marquee-row relative flex overflow-hidden">
-      <div className={`marquee-track flex ${reverse ? "marquee-reverse" : ""}`}>
-        {[...half, ...half].map((t, i) => (
-          <Card key={i} t={t} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
+// Fileira única: duplica a lista para o loop (-50%) ser contínuo; a cópia fica oculta aos leitores de tela
 export default function Testimonials() {
   return (
-    <div className="space-y-4">
-      <Row />
-      <Row reverse />
+    <div className="marquee-row relative flex overflow-hidden">
+      <div className="marquee-track flex">
+        {testimonials.map((t) => (
+          <Card key={t.name} t={t} />
+        ))}
+        <div className="flex" aria-hidden>
+          {testimonials.map((t) => (
+            <Card key={t.name} t={t} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
