@@ -56,6 +56,14 @@ export default function Home() {
         <Star className="pointer-events-none absolute left-[46%] top-24 w-6 text-[#F6DDA0] twinkle" />
         <Star className="pointer-events-none absolute bottom-20 left-[42%] w-5 text-[#E3AFB0] twinkle [animation-delay:-1s]" />
         <Star className="pointer-events-none absolute right-[5%] top-1/3 w-4 text-[#F6DDA0]/80 twinkle [animation-delay:-2s]" />
+        <Image
+          src="/barra-lighthouse.webp"
+          alt=""
+          aria-hidden
+          width={1024}
+          height={1536}
+          className="pointer-events-none absolute -left-20 bottom-0 h-auto w-[220px] select-none opacity-[0.12] mix-blend-screen invert md:-left-24 md:w-[360px] md:opacity-[0.16]"
+        />
         <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-6 pb-32 pt-8 md:grid-cols-12 md:gap-8 md:py-24">
           <div className="order-2 md:order-1 md:col-span-7">
             <h1 className="font-serif type-section font-medium">
