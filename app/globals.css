@@ -101,3 +101,18 @@ section[id] {
   line-height: 1.15;
   text-wrap: balance;
 }
+
+/* Elementos lúdicos (pediatria) */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  50% { opacity: 0.55; transform: scale(0.8) rotate(12deg); }
+}
+.float-slow { animation: float-slow 7s ease-in-out infinite; }
+.twinkle { animation: twinkle 3.5s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .float-slow, .twinkle { animation: none; }
+}

@@ -2,6 +2,7 @@ import Image from "next/image";
 import CTAButton from "@/components/CTAButton";
 import Header from "@/components/Header";
 import FAQ from "@/components/FAQ";
+import { Balloon, Cloud, Teddy, CuteIcon, Heart, Squiggle, Star, type IconName } from "@/components/Decor";
 import Reveal from "@/components/Reveal";
 import Testimonials from "@/components/Testimonials";
 import { ADDRESS, MAPS_EMBED, MAPS_URL } from "@/lib/config";
@@ -12,20 +13,27 @@ const heroHighlights = [
   "Acompanhamento de bebês, crianças e adolescentes.",
 ];
 
-const followUp = [
-  ["Crescimento e desenvolvimento", "Avaliação do peso, altura e desenvolvimento físico e neuropsicomotor, respeitando as particularidades de cada criança."],
-  ["Alimentação infantil", "Orientações sobre amamentação, introdução alimentar e hábitos alimentares adequados a cada fase da infância."],
-  ["Sono infantil", "Avaliação da rotina de sono do bebê e da criança, com orientações para ajudar a família a compreender as necessidades de cada idade."],
-  ["Comportamento infantil", "Acompanhamento das mudanças de comportamento e dos marcos do desenvolvimento, auxiliando os pais a compreender os desafios de cada fase."],
-  ["Vacinação", "Revisão da caderneta de vacinação e orientações sobre as vacinas recomendadas para cada etapa da infância."],
-  ["Saúde e controle do peso", "Avaliação do peso, da alimentação e dos hábitos de vida, com acompanhamento individualizado de crianças e adolescentes."],
+const followUp: [string, string, IconName, string][] = [
+  ["Crescimento e desenvolvimento", "Avaliação do peso, altura e desenvolvimento físico e neuropsicomotor, respeitando as particularidades de cada criança.", "growth", "#F6DDA0"],
+  ["Alimentação infantil", "Orientações sobre amamentação, introdução alimentar e hábitos alimentares adequados a cada fase da infância.", "food", "#F3C4C4"],
+  ["Sono infantil", "Avaliação da rotina de sono do bebê e da criança, com orientações para ajudar a família a compreender as necessidades de cada idade.", "moon", "#C9DDF0"],
+  ["Comportamento infantil", "Acompanhamento das mudanças de comportamento e dos marcos do desenvolvimento, auxiliando os pais a compreender os desafios de cada fase.", "smile", "#CFE5D3"],
+  ["Vacinação", "Revisão da caderneta de vacinação e orientações sobre as vacinas recomendadas para cada etapa da infância.", "shield", "#F6DDA0"],
+  ["Saúde e controle do peso", "Avaliação do peso, da alimentação e dos hábitos de vida, com acompanhamento individualizado de crianças e adolescentes.", "scale", "#F3C4C4"],
 ];
 
-const steps = [
-  ["Escuta e atenção às suas preocupações", "A consulta começa com uma conversa sobre a saúde da criança, seu histórico, sua rotina e as dúvidas dos pais."],
-  ["Avaliação cuidadosa da criança", "A Dra. Thaís realiza uma avaliação individualizada, considerando o crescimento, o desenvolvimento e as necessidades de saúde de cada paciente."],
-  ["Orientações claras para a família", "Você recebe explicações sobre a avaliação realizada, as condutas indicadas e os cuidados necessários, com espaço para esclarecer suas dúvidas."],
-  ["Suporte após a consulta", "O cuidado também inclui suporte posterior ao atendimento, conforme as orientações e condições estabelecidas durante a consulta."],
+const ages: [string, string, string][] = [
+  ["Recém-nascidos", "#F3C4C4", "heart"],
+  ["Bebês", "#F6DDA0", "moon"],
+  ["Crianças", "#CFE5D3", "smile"],
+  ["Adolescentes", "#C9DDF0", "chat"],
+];
+
+const steps: [string, string, IconName][] = [
+  ["Escuta e atenção às suas preocupações", "A consulta começa com uma conversa sobre a saúde da criança, seu histórico, sua rotina e as dúvidas dos pais.", "ear"],
+  ["Avaliação cuidadosa da criança", "A Dra. Thaís realiza uma avaliação individualizada, considerando o crescimento, o desenvolvimento e as necessidades de saúde de cada paciente.", "stethoscope"],
+  ["Orientações claras para a família", "Você recebe explicações sobre a avaliação realizada, as condutas indicadas e os cuidados necessários, com espaço para esclarecer suas dúvidas.", "chat"],
+  ["Suporte após a consulta", "O cuidado também inclui suporte posterior ao atendimento, conforme as orientações e condições estabelecidas durante a consulta.", "heart"],
 ];
 
 const serviceInfo = [
@@ -44,6 +52,11 @@ export default function Home() {
       <section id="hero" className="relative flex min-h-screen items-center overflow-hidden bg-[#174B4B] text-[#F0E3D0]">
         <div className="pointer-events-none absolute -right-40 -top-40 h-[560px] w-[560px] rounded-full bg-[#BD7475]/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-52 -left-32 h-[520px] w-[520px] rounded-full bg-[#2a7070]/40 blur-3xl" />
+        <Cloud className="pointer-events-none absolute left-[6%] top-28 w-24 text-[#F0E3D0]/10 float-slow" />
+        <Cloud className="pointer-events-none absolute bottom-40 right-[8%] w-32 text-[#F0E3D0]/10 float-slow [animation-delay:-3s]" />
+        <Star className="pointer-events-none absolute left-[46%] top-24 w-6 text-[#F6DDA0] twinkle" />
+        <Star className="pointer-events-none absolute bottom-20 left-[42%] w-5 text-[#E3AFB0] twinkle [animation-delay:-1s]" />
+        <Star className="pointer-events-none absolute right-[5%] top-1/3 w-4 text-[#F6DDA0]/80 twinkle [animation-delay:-2s]" />
         <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-6 pb-32 pt-16 md:grid-cols-12 md:gap-8 md:py-24">
           <div className="order-2 md:order-1 md:col-span-7">
             <h1 className="font-serif type-section font-medium">
@@ -72,6 +85,10 @@ export default function Home() {
           <div className="order-1 md:order-2 md:col-span-5">
             <div className="relative mx-auto w-[72%] max-w-sm md:w-full md:max-w-md">
               <div className="absolute -bottom-4 -right-4 left-4 top-4 rounded-t-[999px] rounded-b-[2rem] border border-[#E3AFB0]/60" />
+              <Balloon className="absolute -left-6 top-10 z-10 w-10 text-[#E3AFB0] float-slow md:-left-10 md:w-14" />
+              <Balloon className="absolute -right-3 top-2 z-10 w-8 text-[#F6DDA0] float-slow [animation-delay:-2s] md:-right-8 md:w-11" />
+              <Heart className="absolute -bottom-3 -left-3 z-10 w-9 text-[#BD7475] md:w-12" />
+              <Star className="absolute -right-4 bottom-16 z-10 w-8 text-[#F6DDA0] twinkle" />
               <div className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-[2rem] bg-[#E8D6BA] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)]">
                 <Image
                   src="/hero-dra-thais.webp"
@@ -89,11 +106,27 @@ export default function Home() {
       </section>
 
       {/* DOBRA 02 — DEPOIMENTOS */}
-      <section id="depoimentos" className="overflow-hidden bg-[#E8D6BA] pb-40 pt-20 md:pb-44 md:pt-28">
+      <section id="depoimentos" className="relative overflow-hidden bg-[#E8D6BA] pb-40 pt-20 md:pb-44 md:pt-28">
+        <Star className="pointer-events-none absolute left-[8%] top-16 w-6 text-[#E3AFB0] twinkle" />
+        <Star className="pointer-events-none absolute right-[10%] top-24 w-5 text-[#E0A93B] twinkle [animation-delay:-1.5s]" />
+        <Heart className="pointer-events-none absolute right-[18%] top-12 w-5 text-[#BD7475]/60" />
+        <Reveal className="mx-auto mb-14 flex max-w-4xl flex-wrap items-center justify-center gap-3 px-6 md:mb-20">
+          {ages.map(([label, tint, icon]) => (
+            <span
+              key={label}
+              className="flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-[#174B4B] shadow-sm transition duration-300 hover:-translate-y-1 hover:rotate-2 md:text-base"
+              style={{ backgroundColor: tint }}
+            >
+              <CuteIcon name={icon as IconName} className="h-6 w-6" />
+              {label}
+            </span>
+          ))}
+        </Reveal>
         <Reveal className="mb-10 px-6 text-center md:mb-20">
           <h2 className="mx-auto max-w-5xl font-serif type-section text-[#174B4B]">
             O que as famílias dizem sobre o atendimento da Dra. Thaís Costa
           </h2>
+          <Squiggle className="mx-auto mt-5 w-28 text-[#BD7475]" />
           <p className="mx-auto mt-4 max-w-xl leading-relaxed text-[#3d5a5a]">
             Conheça a experiência de pais e mães que confiaram o cuidado de seus filhos à Dra. Thaís Costa.
           </p>
@@ -102,8 +135,15 @@ export default function Home() {
       </section>
 
       {/* DOBRA 03 — MANIFESTO / CONEXÃO */}
-      <section className="relative -mt-16 rounded-t-[4rem] bg-[#174B4B] pb-44 pt-24 text-[#F0E3D0] md:pb-52 md:pt-32">
-        <div className="mx-auto max-w-3xl px-6 text-center">
+      <section className="relative -mt-16 overflow-hidden rounded-t-[4rem] bg-[#174B4B] pb-44 pt-24 text-[#F0E3D0] md:pb-52 md:pt-32">
+        <Cloud className="pointer-events-none absolute left-[4%] top-32 w-28 text-[#F0E3D0]/10 float-slow" />
+        <Cloud className="pointer-events-none absolute bottom-48 right-[3%] w-36 text-[#F0E3D0]/10 float-slow [animation-delay:-4s]" />
+        <Balloon className="pointer-events-none absolute right-[8%] top-28 hidden w-12 text-[#E3AFB0] float-slow md:block" />
+        <Balloon className="pointer-events-none absolute left-[7%] bottom-56 hidden w-10 text-[#F6DDA0] float-slow [animation-delay:-2s] md:block" />
+        <Star className="pointer-events-none absolute left-[18%] top-24 w-5 text-[#F6DDA0] twinkle" />
+        <Star className="pointer-events-none absolute bottom-60 right-[20%] w-6 text-[#E3AFB0] twinkle [animation-delay:-1s]" />
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <Teddy className="mx-auto mb-4 w-24 float-slow" />
           <Reveal>
             <h2 className="font-serif type-section">
               Suas preocupações merecem ser ouvidas.{" "}
@@ -130,7 +170,9 @@ export default function Home() {
       </section>
 
       {/* DOBRA 04 — ACOMPANHAMENTO PEDIÁTRICO */}
-      <section id="acompanhamento" className="relative -mt-16 rounded-t-[4rem] bg-[#E8D6BA] pb-40 pt-20 md:pb-44 md:pt-28">
+      <section id="acompanhamento" className="relative -mt-16 overflow-hidden rounded-t-[4rem] bg-[#E8D6BA] pb-40 pt-20 md:pb-44 md:pt-28">
+        <Star className="pointer-events-none absolute right-[6%] top-24 w-6 text-[#E0A93B] twinkle" />
+        <Heart className="pointer-events-none absolute right-[12%] top-40 w-5 text-[#E3AFB0]" />
         <div className="mx-auto max-w-6xl px-6">
           <Reveal className="mb-12 max-w-3xl">
             <h2 className="font-serif type-section text-[#174B4B]">
@@ -141,11 +183,16 @@ export default function Home() {
             </p>
           </Reveal>
           <div className="grid gap-6 md:grid-cols-2">
-            {followUp.map(([t, d], i) => (
+            {followUp.map(([t, d, icon, tint], i) => (
               <Reveal key={t} delay={(i % 3) * 80}>
-                <article className="h-full rounded-3xl border border-[#D3BF9F] bg-[#F0E3D0] p-9 transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_-28px_rgba(23,75,75,0.45)]">
-                  <span className="font-serif text-5xl italic text-[#BD7475]">0{i + 1}</span>
-                  <h3 className="mt-3 font-serif type-card text-[#174B4B]">{t}</h3>
+                <article className="group h-full rounded-3xl border border-[#D3BF9F] bg-[#F0E3D0] p-9 transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_-28px_rgba(23,75,75,0.45)]">
+                  <span
+                    className="flex h-16 w-16 items-center justify-center rounded-2xl text-[#174B4B] transition duration-500 group-hover:rotate-6 group-hover:scale-110"
+                    style={{ backgroundColor: tint }}
+                  >
+                    <CuteIcon name={icon} className="h-10 w-10" />
+                  </span>
+                  <h3 className="mt-5 font-serif type-card text-[#174B4B]">{t}</h3>
                   <p className="mt-2 leading-relaxed text-[#3d5a5a]">{d}</p>
                 </article>
               </Reveal>
@@ -169,9 +216,9 @@ export default function Home() {
             </p>
           </Reveal>
           <ol className="relative max-w-3xl">
-            {steps.map(([t, d], i) => (
+            {steps.map(([t, d, icon], i) => (
               <Reveal key={t} delay={i * 80}>
-                <li className="relative flex gap-5 pb-10 last:pb-0 md:gap-8">
+                <li className="relative flex gap-5 pb-12 last:pb-0 md:gap-8">
                   {i < steps.length - 1 && (
                     <span className="absolute left-[19px] top-10 h-[calc(100%-2.5rem)] w-px bg-[#E3AFB0]/40" aria-hidden />
                   )}
@@ -179,7 +226,12 @@ export default function Home() {
                     {i + 1}
                   </span>
                   <div className="pt-1">
-                    <h3 className="font-serif type-card">{t}</h3>
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F6DDA0] text-[#174B4B]">
+                        <CuteIcon name={icon} className="h-7 w-7" />
+                      </span>
+                      <h3 className="font-serif type-card">{t}</h3>
+                    </div>
                     <p className="mt-2 leading-relaxed text-[#F0E3D0]/75">{d}</p>
                   </div>
                 </li>
@@ -227,6 +279,9 @@ export default function Home() {
             <div className="relative mx-auto max-w-sm md:max-w-none">
               <div className="absolute -bottom-4 -right-4 left-4 top-4 rounded-t-[999px] rounded-b-[2rem] border border-[#BD7475]/60" />
               <div className="absolute -left-6 -top-6 h-24 w-24 rounded-full bg-[#BD7475]/25 blur-2xl" />
+              <Star className="absolute -left-3 top-8 z-10 w-9 text-[#F6DDA0] twinkle" />
+              <Heart className="absolute -right-3 top-1/3 z-10 w-9 text-[#BD7475]" />
+              <Star className="absolute -right-2 bottom-24 z-10 w-6 text-[#E3AFB0] twinkle [animation-delay:-1s]" />
               <div className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-[2rem] bg-[#174B4B] shadow-[0_40px_80px_-30px_rgba(23,75,75,0.6)]">
                 <Image
                   src="/dra-thais.webp"
