@@ -10,13 +10,6 @@ const faqs = [
     ],
   },
   {
-    q: "Qual é o valor da consulta pediátrica?",
-    a: [
-      "O valor da consulta é de R$ 380,00 para pagamento no cartão de crédito ou débito.",
-      "Para pagamentos via Pix, o valor é de R$ 360,00.",
-    ],
-  },
-  {
     q: "Quanto tempo dura a consulta?",
     a: [
       "A consulta pode durar até 1 hora, permitindo uma avaliação cuidadosa da criança e tempo para conversar sobre as preocupações e dúvidas dos pais.",
@@ -26,6 +19,14 @@ const faqs = [
     q: "A Dra. Thaís atende bebês e recém-nascidos?",
     a: [
       "Sim. A Dra. Thaís realiza o acompanhamento pediátrico de recém-nascidos, bebês, crianças e adolescentes, avaliando o crescimento, o desenvolvimento e as necessidades de cada fase.",
+    ],
+  },
+  {
+    q: "A Dra. Thaís atende crianças especiais com TDAH?",
+    a: [
+      "Sim. A Dra. Thaís atende crianças especiais, incluindo aquelas com TDAH, com toda dedicação, paciência e expertise.",
+      "Cada criança tem seu próprio ritmo e suas particularidades. Por isso, a consulta é conduzida com tempo e escuta, para compreender o comportamento, a rotina e o desenvolvimento do seu filho, além de acolher as dúvidas e as preocupações da família.",
+      "Os pais recebem orientações claras sobre os cuidados indicados e os próximos passos, sempre com respeito às necessidades de cada criança.",
     ],
   },
   {

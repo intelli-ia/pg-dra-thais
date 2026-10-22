@@ -5,7 +5,7 @@ import FAQ from "@/components/FAQ";
 import { Balloon, Cloud, Teddy, CuteIcon, Heart, Squiggle, Star, type IconName } from "@/components/Decor";
 import Reveal from "@/components/Reveal";
 import Testimonials from "@/components/Testimonials";
-import { ADDRESS, MAPS_EMBED, MAPS_URL } from "@/lib/config";
+import { ADDRESS, MAPS_EMBED } from "@/lib/config";
 
 const heroHighlights = [
   "Mais de 12 anos de experiência em Pediatria.",
@@ -29,18 +29,17 @@ const ages: [string, string, string][] = [
   ["Adolescentes", "#C9DDF0", "chat"],
 ];
 
-const steps: [string, string, IconName][] = [
-  ["Escuta e atenção às suas preocupações", "A consulta começa com uma conversa sobre a saúde da criança, seu histórico, sua rotina e as dúvidas dos pais.", "ear"],
-  ["Avaliação cuidadosa da criança", "A Dra. Thaís realiza uma avaliação individualizada, considerando o crescimento, o desenvolvimento e as necessidades de saúde de cada paciente.", "stethoscope"],
-  ["Orientações claras para a família", "Você recebe explicações sobre a avaliação realizada, as condutas indicadas e os cuidados necessários, com espaço para esclarecer suas dúvidas.", "chat"],
-  ["Suporte após a consulta", "O cuidado também inclui suporte posterior ao atendimento, conforme as orientações e condições estabelecidas durante a consulta.", "heart"],
+const steps: [string, string][] = [
+  ["Escuta e atenção às suas preocupações", "A consulta começa com uma conversa sobre a saúde da criança, seu histórico, sua rotina e as dúvidas dos pais."],
+  ["Avaliação cuidadosa da criança", "A Dra. Thaís realiza uma avaliação individualizada, considerando o crescimento, o desenvolvimento e as necessidades de saúde de cada paciente."],
+  ["Orientações claras para a família", "Você recebe explicações sobre a avaliação realizada, as condutas indicadas e os cuidados necessários, com espaço para esclarecer suas dúvidas."],
+  ["Suporte após a consulta", "O cuidado também inclui suporte posterior ao atendimento, conforme as orientações e condições estabelecidas durante a consulta."],
 ];
 
-const serviceInfo = [
-  "Consultas exclusivamente particulares.",
-  "Atendimento com horário marcado.",
-  "Consultório no STIEP, Salvador.",
-  "Ambiente confortável e estacionamento no prédio.",
+const privateBenefits: [string, string, IconName, string][] = [
+  ["Qualidade", "Consultas com tempo para ouvir, examinar e explicar, sem a pressa de um atendimento em volume.", "stethoscope", "#F6DDA0"],
+  ["Segurança", "Avaliação cuidadosa e orientações claras, para você sair da consulta sabendo quais cuidados seguir.", "shield", "#C9DDF0"],
+  ["Conforto", "Horário marcado, ambiente acolhedor e estacionamento no prédio, para uma experiência tranquila.", "heart", "#F3C4C4"],
 ];
 
 export default function Home() {
@@ -204,76 +203,104 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DOBRA 05 — COMO FUNCIONA O ATENDIMENTO */}
-      <section id="como-funciona" className="relative -mt-16 rounded-t-[4rem] bg-[#174B4B] pb-44 pt-24 text-[#F0E3D0] md:pb-52 md:pt-28">
-        <div className="mx-auto max-w-6xl px-6">
-          <Reveal className="mb-12 max-w-3xl">
+      {/* DOBRA 04b — ATENDIMENTO PARTICULAR */}
+      <section id="atendimento-particular" className="relative -mt-16 overflow-hidden bg-[#174B4B] pb-44 pt-24 text-[#F0E3D0] md:pb-52 md:pt-28">
+        <Cloud className="pointer-events-none absolute left-[4%] top-28 w-28 text-[#F0E3D0]/10 float-slow" />
+        <Cloud className="pointer-events-none absolute bottom-48 right-[4%] w-32 text-[#F0E3D0]/10 float-slow [animation-delay:-3s]" />
+        <Star className="pointer-events-none absolute right-[12%] top-24 w-5 text-[#F6DDA0] twinkle" />
+        <Star className="pointer-events-none absolute bottom-56 left-[10%] w-6 text-[#E3AFB0] twinkle [animation-delay:-1.5s]" />
+        <div className="relative mx-auto max-w-6xl px-6">
+          <Reveal className="mx-auto max-w-3xl text-center">
             <h2 className="font-serif type-section">
-              Como funciona a consulta com a <span className="italic text-[#E3AFB0]">Dra. Thaís Costa?</span>
+              Atendimento <span className="italic text-[#E3AFB0]">exclusivamente particular</span>
             </h2>
-            <p className="mt-4 text-base md:text-lg leading-relaxed text-[#F0E3D0]/80">
+            <div className="mx-auto my-7 h-px w-24 bg-[#BD7475]" />
+            <p className="text-base leading-[1.7] text-[#F0E3D0]/90 md:text-lg">
+              A Dra. Thaís Costa atende exclusivamente de forma particular. Essa escolha garante mais qualidade, segurança e conforto para cada paciente e sua família, com a atenção que a saúde do seu filho merece.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {privateBenefits.map(([t, d, icon, tint], i) => (
+              <Reveal key={t} delay={i * 80}>
+                <article className="group h-full rounded-3xl border border-[#2a7070] bg-[#1d5a5a] p-8 transition duration-500 hover:-translate-y-1">
+                  <span
+                    className="flex h-16 w-16 items-center justify-center rounded-2xl text-[#174B4B] transition duration-500 group-hover:rotate-6 group-hover:scale-110"
+                    style={{ backgroundColor: tint }}
+                  >
+                    <CuteIcon name={icon} className="h-10 w-10" />
+                  </span>
+                  <h3 className="mt-5 font-serif type-card">{t}</h3>
+                  <p className="mt-2 leading-relaxed text-[#F0E3D0]/80">{d}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="mt-12 text-center">
+            <CTAButton label="Agendar consulta particular" />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* DOBRA 05 — COMO FUNCIONA O ATENDIMENTO */}
+      <section id="como-funciona" className="relative -mt-16 rounded-t-[4rem] bg-[#F0E3D0] pb-40 pt-20 md:pb-44 md:pt-28">
+        <div className="mx-auto mb-12 max-w-6xl px-6">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <h2 className="font-serif type-section text-[#174B4B]">
+              Como funciona a consulta com a <span className="italic text-[#BD7475]">Dra. Thaís Costa?</span>
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-[#3d5a5a] md:text-lg">
               Um atendimento pediátrico pensado para avaliar seu filho com cuidado, ouvir suas preocupações e orientar sua família com clareza.
             </p>
           </Reveal>
-          <ol className="relative max-w-3xl">
-            {steps.map(([t, d, icon], i) => (
-              <Reveal key={t} delay={i * 80}>
-                <li className="relative flex gap-5 pb-12 last:pb-0 md:gap-8">
-                  {i < steps.length - 1 && (
-                    <span className="absolute left-[19px] top-10 h-[calc(100%-2.5rem)] w-px bg-[#E3AFB0]/40" aria-hidden />
-                  )}
-                  <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#E3AFB0] bg-[#174B4B] text-sm font-semibold text-[#E3AFB0]">
-                    {i + 1}
-                  </span>
-                  <div className="pt-1">
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F6DDA0] text-[#174B4B]">
-                        <CuteIcon name={icon} className="h-7 w-7" />
-                      </span>
-                      <h3 className="font-serif type-card">{t}</h3>
+        </div>
+        <div className="mx-auto grid max-w-6xl items-start gap-14 px-6 md:grid-cols-[1.2fr_1fr] md:gap-12">
+          <div>
+            <ol className="relative max-w-3xl">
+              {steps.map(([t, d], i) => (
+                <Reveal key={t} delay={i * 80}>
+                  <li className={`relative flex gap-5 md:gap-8 ${i < steps.length - 1 ? "pb-10" : ""}`}>
+                    {i < steps.length - 1 && (
+                      <span className="absolute left-[19px] top-10 h-[calc(100%-2.5rem)] w-px bg-[#BD7475]/40" aria-hidden />
+                    )}
+                    <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#BD7475] bg-[#F0E3D0] text-sm font-semibold text-[#BD7475]">
+                      {i + 1}
+                    </span>
+                    <div className="pt-1">
+                      <h3 className="font-serif type-card text-[#174B4B]">{t}</h3>
+                      <p className="mt-2 leading-relaxed text-[#3d5a5a]">{d}</p>
                     </div>
-                    <p className="mt-2 leading-relaxed text-[#F0E3D0]/75">{d}</p>
-                  </div>
-                </li>
-              </Reveal>
-            ))}
-          </ol>
-
-          <div className="mt-14 grid gap-10 md:grid-cols-2">
-            <Reveal>
-              <h3 className="font-serif type-sub">
-                Informações sobre o <span className="italic text-[#E3AFB0]">atendimento</span>
-              </h3>
-              <ul className="mt-4 space-y-2">
-                {serviceInfo.map((s) => (
-                  <li key={s} className="flex items-start gap-3 text-[#F0E3D0]/90">
-                    <svg className="mt-1.5 h-4 w-4 shrink-0 text-[#E3AFB0]" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    {s}
                   </li>
-                ))}
-              </ul>
-              <p className="mt-4 leading-relaxed text-[#D8E2DC]">{ADDRESS}</p>
-              <div className="mt-8 flex w-full flex-col gap-4">
-                <CTAButton />
-                <CTAButton variant="outline" label="Abrir no mapa" href={MAPS_URL} />
-              </div>
-            </Reveal>
-            <Reveal delay={150}>
-              <iframe
-                title="Mapa do consultório da Dra. Thaís Costa em Salvador"
-                src={MAPS_EMBED}
-                loading="lazy"
-                className="h-96 w-full rounded-3xl border-0 md:h-full md:min-h-96"
-              />
+                </Reveal>
+              ))}
+            </ol>
+            <Reveal className="mt-12">
+              <CTAButton />
             </Reveal>
           </div>
+
+          <Reveal delay={150}>
+            <div className="relative mx-auto max-w-sm md:max-w-none">
+              <div className="absolute -bottom-4 -right-4 left-4 top-4 rounded-3xl border border-[#BD7475]/60" />
+              <div className="relative aspect-[3/4] overflow-hidden rounded-3xl bg-[#174B4B] shadow-[0_40px_80px_-30px_rgba(23,75,75,0.6)]">
+                <iframe
+                  title="Mapa do consultório da Dra. Thaís Costa em Salvador"
+                  src={MAPS_EMBED}
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full border-0"
+                />
+              </div>
+            </div>
+            <p className="mt-6 text-center text-xs leading-snug text-[#3d5a5a]">{ADDRESS}</p>
+          </Reveal>
         </div>
       </section>
 
       {/* DOBRA 06 — SOBRE A MÉDICA */}
-      <section id="sobre" className="relative -mt-16 overflow-hidden rounded-t-[4rem] bg-[#E8D6BA] pb-40 pt-20 md:pb-44 md:pt-28">
+      <section id="sobre" className="relative -mt-16 overflow-hidden bg-[#E8D6BA] pb-40 pt-20 md:pb-44 md:pt-28">
         <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 md:grid-cols-12 md:gap-14">
           <Reveal className="md:col-span-5">
             <div className="relative mx-auto max-w-sm md:max-w-none">
@@ -343,9 +370,32 @@ export default function Home() {
             <FAQ />
           </Reveal>
         </div>
+
+        <div className="relative mt-24 overflow-hidden py-16 md:mt-44 md:py-20">
+          <Cloud className="pointer-events-none absolute left-[4%] top-6 w-28 text-[#F0E3D0]/10 float-slow" />
+          <Cloud className="pointer-events-none absolute bottom-6 right-[4%] w-32 text-[#F0E3D0]/10 float-slow [animation-delay:-3s]" />
+          <Balloon className="pointer-events-none absolute left-[7%] top-1/3 hidden w-12 text-[#E3AFB0] float-slow md:block" />
+          <Balloon className="pointer-events-none absolute right-[8%] top-10 hidden w-10 text-[#F6DDA0] float-slow [animation-delay:-2s] md:block" />
+          <Star className="pointer-events-none absolute left-[18%] top-8 w-5 text-[#F6DDA0] twinkle" />
+          <Star className="pointer-events-none absolute bottom-10 right-[20%] w-6 text-[#E3AFB0] twinkle [animation-delay:-1s]" />
+          <Heart className="pointer-events-none absolute bottom-16 left-[14%] w-5 text-[#BD7475]/70" />
+          <Reveal className="relative mx-auto max-w-3xl px-6 text-center">
+            <Teddy className="mx-auto mb-4 w-24 float-slow" />
+            <h2 className="font-serif type-section">
+              Sua criança merece o melhor cuidado. <span className="italic text-[#E3AFB0]">E você sabe disso.</span>
+            </h2>
+            <div className="mx-auto my-7 h-px w-24 bg-[#BD7475]" />
+            <p className="text-base leading-[1.7] text-[#F0E3D0]/85 md:text-lg">
+              Agende a consulta do seu filho e conte com um acompanhamento atencioso, em cada fase da infância.
+            </p>
+            <div className="mt-9">
+              <CTAButton label="Agende sua consulta" variant="green" icon="whatsapp" />
+            </div>
+          </Reveal>
+        </div>
       </section>
 
-      <footer className="border-t border-[#F0E3D0]/10 bg-[#0F3A3A] py-10 text-center text-sm text-[#F0E3D0]/50">
+      <footer className="bg-[#0F3A3A] pb-10 pt-4 text-center text-sm text-[#F0E3D0]/50">
         © 2026 Dra. Thaís Costa · CRM-BA 23340 | RQE 19602 · Pediatria · Salvador - BA
       </footer>
     </main>

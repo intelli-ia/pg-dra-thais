@@ -23,8 +23,8 @@ const variants = {
 };
 
 const sizes = {
-  default: "px-5 py-2.5 text-sm md:px-7 md:py-3",
-  sm: "px-4 py-2 text-xs",
+  default: "px-6 py-3.5 text-[15px] md:px-9 md:py-4 md:text-base",
+  sm: "px-5 py-2.5 text-sm",
 };
 
 export default function CTAButton({
@@ -43,10 +43,10 @@ export default function CTAButton({
     >
       {label}
       {icon === "whatsapp" ? (
-        <WhatsAppIcon className={size === "sm" ? "h-4 w-4" : "h-5 w-5"} />
+        <WhatsAppIcon className={size === "sm" ? "h-4 w-4" : "h-5 w-5 md:h-6 md:w-6"} />
       ) : (
         <svg
-          className={size === "sm" ? "h-3.5 w-3.5" : "h-4 w-4"}
+          className={size === "sm" ? "h-4 w-4" : "h-4 w-4 md:h-5 md:w-5"}
           fill="none"
           stroke="currentColor"
           strokeWidth={2}
