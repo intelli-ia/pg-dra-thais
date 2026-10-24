@@ -29,7 +29,7 @@ const sizes = {
 };
 
 export default function CTAButton({
-  label = "Agende sua consulta",
+  label = "Agende sua consulta particular",
   href = WHATSAPP_URL,
   variant = "solid",
   size = "default",

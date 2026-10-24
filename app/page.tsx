@@ -215,7 +215,7 @@ export default function Home() {
             ))}
           </div>
           <Reveal className="mt-12 text-center">
-            <CTAButton label="Agende uma consulta pediátrica" />
+            <CTAButton label="Agende uma consulta pediátrica particular" />
           </Reveal>
         </div>
       </section>
@@ -390,7 +390,7 @@ export default function Home() {
                 Dúvidas frequentes sobre a consulta pediátrica em Salvador
               </h2>
               <div className="text-center md:text-left">
-                <CTAButton label="Tenho mais dúvidas" icon="whatsapp" variant="green" />
+                <CTAButton label="Dúvidas sobre consulta particular" icon="whatsapp" variant="green" />
               </div>
             </div>
           </Reveal>
@@ -417,7 +417,7 @@ export default function Home() {
               Agende a consulta do seu filho e conte com um acompanhamento atencioso, em cada fase da infância.
             </p>
             <div className="mt-9">
-              <CTAButton label="Agende sua consulta" variant="green" icon="whatsapp" />
+              <CTAButton label="Agende sua consulta particular" variant="green" icon="whatsapp" />
             </div>
           </Reveal>
         </div>

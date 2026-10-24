@@ -31,7 +31,7 @@ export default function Header() {
         <span className="font-serif text-xl font-medium text-[#174B4B]">
           Dra. Thaís <span className="italic text-[#BD7475]">Costa</span>
         </span>
-        <CTAButton size="sm" label="Agendar" />
+        <CTAButton size="sm" label="Agendar particular" />
       </div>
     </header>
   );

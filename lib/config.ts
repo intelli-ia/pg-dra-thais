@@ -1,5 +1,5 @@
 export const WHATSAPP_URL =
-  "https://api.whatsapp.com/send?phone=5571981923570&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta";
+  "https://api.whatsapp.com/send?phone=5571981923570&text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20particular";
 
 export const ADDRESS =
   "Condomínio Metropolis Empresarial, Rua Dr. José Peroba, 275, Sala 1210 — STIEP, Salvador - BA, CEP 41770-235";
