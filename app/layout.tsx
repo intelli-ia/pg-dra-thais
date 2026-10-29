@@ -29,6 +29,29 @@ export const metadata: Metadata = {
 const GTM_ID = "GTM-P2C8W5HL";
 const GADS_ID = "AW-16637218372";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  name: "Dra. Thaís Costa",
+  description: "Pediatra em Salvador com atendimento particular para bebês, crianças e adolescentes.",
+  url: "https://lp.drathaiscosta.com.br/",
+  image: "https://lp.drathaiscosta.com.br/dra-thais.webp",
+  telephone: "+5571981923570",
+  medicalSpecialty: "https://schema.org/Pediatric",
+  identifier: [
+    { "@type": "PropertyValue", propertyID: "CRM", value: "23340" },
+    { "@type": "PropertyValue", propertyID: "RQE", value: "19602" },
+  ],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Condomínio Metropolis Empresarial - R. Dr. José Peroba, 275 - Sl 1210",
+    addressLocality: "Salvador",
+    addressRegion: "BA",
+    postalCode: "41770-235",
+    addressCountry: "BR",
+  },
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="pt-BR" className={`${poppins.variable} antialiased`}>
@@ -44,6 +67,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </noscript>
         {/* End Google Tag Manager (noscript) */}
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        />
         {/* Google Tag Manager: carregado após o load para não competir com o LCP/TBT */}
         <Script id="gtm" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
