@@ -54,7 +54,7 @@ const testimonials: Testimonial[] = [
 const tones = {
   light: { box: "bg-white", text: "text-[#174B4B]/90", name: "text-[#174B4B]" },
   dark: { box: "bg-[#174B4B]", text: "text-[#F0E3D0]", name: "text-[#E3AFB0]" },
-  sand: { box: "bg-[#F0E3D0]", text: "text-[#174B4B]", name: "text-[#9A5254]" },
+  sand: { box: "bg-[#F0E3D0]", text: "text-[#174B4B]", name: "text-[#8A4546]" },
 } as const;
 
 function Card({ t }: { t: Testimonial }) {

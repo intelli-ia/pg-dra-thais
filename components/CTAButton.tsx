@@ -16,7 +16,7 @@ const base =
 
 const variants = {
   solid:
-    "bg-[#BD7475] text-[#FFF8EE] shadow-sm shadow-black/10 hover:bg-[#a96162] hover:shadow-[0_0_24px_rgba(189,116,117,0.5)]",
+    "bg-[#A25859] text-[#FFF8EE] shadow-sm shadow-black/10 hover:bg-[#8F4B4C] hover:shadow-[0_0_24px_rgba(189,116,117,0.5)]",
   green:
     "bg-[#25D366] text-[#0F3A3A] shadow-sm shadow-black/10 hover:bg-[#1fb857] hover:shadow-[0_0_24px_rgba(37,211,102,0.5)]",
   outline:

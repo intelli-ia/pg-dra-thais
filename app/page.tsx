@@ -6,7 +6,8 @@ import GoogleRating from "@/components/GoogleRating";
 import { Balloon, Cloud, Teddy, CuteIcon, Heart, Squiggle, Star, type IconName } from "@/components/Decor";
 import Reveal from "@/components/Reveal";
 import Testimonials from "@/components/Testimonials";
-import { ADDRESS, MAPS_EMBED } from "@/lib/config";
+import MapEmbed from "@/components/MapEmbed";
+import { ADDRESS, MAPS_EMBED, MAPS_URL } from "@/lib/config";
 
 const heroHighlights = [
   "Mais de 12 anos de experiência em Pediatria.",
@@ -265,7 +266,7 @@ export default function Home() {
         <div className="mx-auto mb-12 max-w-6xl px-6">
           <Reveal className="mx-auto max-w-3xl text-center">
             <h2 className="font-serif type-section text-[#174B4B]">
-              Como funciona a consulta com a <span className="italic text-[#BD7475]">Dra. Thaís Costa?</span>
+              Como funciona a consulta com a <span className="italic text-[#8A4546]">Dra. Thaís Costa?</span>
             </h2>
             <p className="mt-4 text-base leading-relaxed text-[#3d5a5a] md:text-lg">
               Um atendimento pediátrico pensado para avaliar seu filho com cuidado, ouvir suas preocupações e orientar sua família com clareza.
@@ -298,14 +299,7 @@ export default function Home() {
             <div className="relative mx-auto max-w-sm md:max-w-none">
               <div className="absolute -bottom-4 -right-4 left-4 top-4 rounded-3xl border border-[#BD7475]/60" />
               <div className="relative aspect-[3/4] overflow-hidden rounded-3xl bg-[#174B4B] shadow-[0_40px_80px_-30px_rgba(23,75,75,0.6)]">
-                <iframe
-                  title="Mapa do consultório da Dra. Thaís Costa em Salvador"
-                  src={MAPS_EMBED}
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                  className="absolute inset-0 h-full w-full border-0"
-                />
+                <MapEmbed title="Mapa do consultório da Dra. Thaís Costa em Salvador" src={MAPS_EMBED} href={MAPS_URL} />
               </div>
             </div>
             <p className="mt-6 text-center text-xs leading-snug text-[#3d5a5a]">{ADDRESS}</p>

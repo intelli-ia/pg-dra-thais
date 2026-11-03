@@ -29,7 +29,7 @@ export default function Header() {
         className="flex w-full max-w-xl transform-gpu items-center justify-between gap-6 rounded-full border border-[#174B4B]/10 bg-[#F0E3D0]/70 py-1.5 pl-6 pr-1.5 shadow-lg"
       >
         <span className="font-serif text-xl font-medium text-[#174B4B]">
-          Dra. Thaís <span className="italic text-[#BD7475]">Costa</span>
+          Dra. Thaís <span className="italic text-[#8A4546]">Costa</span>
         </span>
         <CTAButton size="sm" label="Agendar particular" />
       </div>

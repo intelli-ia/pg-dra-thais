@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import DeferredTags from "@/components/DeferredTags";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -71,22 +71,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
         />
-        {/* Google Tag Manager: carregado após o load para não competir com o LCP/TBT */}
-        <Script id="gtm" strategy="lazyOnload">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${GTM_ID}');`}
-        </Script>
-        {/* Google tag (gtag.js) */}
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GADS_ID}`} strategy="lazyOnload" />
-        <Script id="gtag" strategy="lazyOnload">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GADS_ID}');`}
-        </Script>
+        <DeferredTags gtmId={GTM_ID} adsId={GADS_ID} />
       </body>
     </html>
   );
